@@ -38,6 +38,7 @@ export function HeroMotion({ children, className, id }: { children: ReactNode; c
           mask: "lines",
           autoSplit: true,
           onSplit(self) {
+            gsap.set(self.masks, { paddingBottom: "0.16em", marginBottom: "-0.16em" });
             gsap.set(headline, { autoAlpha: 1 });
             return gsap.from(self.lines, { yPercent: 115, duration: 1.1, stagger: 0.12, ease: EASE.expo, delay: 0.15 });
           },

@@ -11,7 +11,7 @@ export const site = {
   description:
     "Ashin Geo builds Shopify stores, WordPress sites and custom Next.js websites for small online shops.",
   linkedin: "https://in.linkedin.com/in/ashin-geo",
-  action: "Start a project",
+  action: "Let's talk",
   /**
    * Optional, shown as a small status pill in the hero when set. Leave null unless it is true today.
    * e.g. "Taking on new projects"
@@ -37,25 +37,25 @@ export const marqueeItems = ["Shopify", "WordPress", "Next.js", "Digital experie
 export const services = [
   {
     title: "Shopify stores",
-    blurb: "Setup, theme changes and a checkout that is easy to finish.",
+    blurb: "Setting up a new store, tweaking a theme, or smoothing out checkout so customers actually finish buying.",
     icon: "store",
     tint: "bg-[#7ddfae] text-[#0f3d27]",
   },
   {
     title: "WordPress & WooCommerce",
-    blurb: "Sites you can edit yourself, with a shop attached if you need one.",
+    blurb: "A site you can edit yourself without calling me every time, with a shop attached if you need one.",
     icon: "globe",
     tint: "bg-[#a9bdff] text-[#14275f]",
   },
   {
     title: "Creative Next.js sites",
-    blurb: "Built by hand, with motion and personality, for brands that skip templates.",
+    blurb: "Hand-built sites with motion and personality, for brands that don't want to look like a template.",
     icon: "sparkles",
     tint: "bg-[#ffc98f] text-[#5a2e05]",
   },
   {
     title: "Speed and polish",
-    blurb: "Mobile-first fixes and the small details that make a shop feel trustworthy.",
+    blurb: "Faster pages, a better phone experience, and the little details that make a shop feel trustworthy.",
     icon: "gauge",
     tint: "bg-[#ffb4ae] text-[#5e1510]",
   },
@@ -74,23 +74,23 @@ export const offTheClock = ["Rubik's Cube", "Crochet", "Writing", "Desk setups"]
 export const process = [
   {
     step: "Discover",
-    text: "We talk about what you sell, who buys it and what is getting in the way today.",
+    text: "We chat about what you sell, who buys it, and what's getting in the way right now.",
   },
   {
     step: "Plan",
-    text: "You get a short written plan: pages, platform, timeline and price, before any work starts.",
+    text: "I send you a short written plan with pages, platform, timeline and price, before any work starts.",
   },
   {
     step: "Design",
-    text: "I sketch the layout and the details that matter on mobile, and you react before I build.",
+    text: "I sketch the layout with phones in mind first, and you tell me what you think before I build.",
   },
   {
     step: "Develop",
-    text: "I build it in the open, with plain-spoken updates so you always know where things stand.",
+    text: "I build it and keep you posted in plain language, so you're never left guessing.",
   },
   {
     step: "Launch",
-    text: "We test it together, go live, and I hand over what you need to look after it.",
+    text: "We test everything together, go live, and I show you how to look after it.",
   },
 ] as const;
 

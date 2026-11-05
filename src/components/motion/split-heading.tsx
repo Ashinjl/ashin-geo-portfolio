@@ -31,6 +31,7 @@ export function SplitHeading({ children, as: Tag = "h2", className, start = "top
         autoSplit: true,
         linesClass: "split-line",
         onSplit(self) {
+          gsap.set(self.masks, { paddingBottom: "0.16em", marginBottom: "-0.16em" });
           gsap.set(el, { autoAlpha: 1 });
           return gsap.from(self.lines, {
             yPercent: 110,

@@ -5,18 +5,18 @@ import { process } from "@/lib/site";
 
 export function Process() {
   return (
-    <section id="process" data-nav="services" className="section-y border-t border-line">
+    <section id="process" data-nav="services" className="pb-[var(--section-y)]">
       <div className="wrap grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
             <p className="eyebrow">Process</p>
           </Reveal>
           <SplitHeading as="h2" className="mt-4 font-display text-4xl font-extrabold leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
-            Five steps, no surprises.
+            How we&apos;ll work together.
           </SplitHeading>
           <Reveal delay={0.1}>
             <p className="mt-5 max-w-sm text-lg text-muted text-pretty">
-              You always know what happens next, what it costs and where things stand.
+              No mystery. You&apos;ll always know what happens next, what it costs and where things stand.
             </p>
           </Reveal>
         </div>

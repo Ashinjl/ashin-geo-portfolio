@@ -9,13 +9,13 @@ import { projects } from "@/lib/site";
 
 export function Work() {
   return (
-    <section id="work" data-nav="work" className="section-y border-t border-line">
+    <section id="work" data-nav="work" className="py-10 sm:py-14">
       <div className="wrap">
         <Reveal>
           <p className="eyebrow">Selected work</p>
         </Reveal>
         <SplitHeading as="h2" className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
-          {projects.length ? "Things I have built." : "The first pages are still being written."}
+          {projects.length ? "Things I've built." : "My first projects are on their way."}
         </SplitHeading>
 
         {projects.length > 0 ? (
@@ -27,21 +27,21 @@ export function Work() {
             ))}
           </div>
         ) : (
-          <Reveal className="mt-12">
+          <Reveal className="mt-8">
             {/* Honest empty state: no invented clients or screenshots. Replace once real projects are in lib/site.ts. */}
             <div className="relative grid gap-8 rounded-md border-2 border-dashed border-line p-8 sm:p-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
               <div>
-                <p className="font-script text-3xl text-muted">Work in progress ✎</p>
+                <p className="font-script text-3xl text-muted">Pencil sketches for now ✎</p>
                 <p className="mt-3 max-w-lg text-lg leading-relaxed text-pretty">
-                  I&apos;m just starting out as a freelancer, and I&apos;d rather leave this space honest than fill it with
-                  filler. Real projects will be added here as they ship, each with the story behind it.
+                  I&apos;m new to freelancing, so there&apos;s no long client list here yet, and I won&apos;t pad it with
+                  made-up work. Real projects will show up as they ship, each with the story behind it.
                 </p>
                 <p className="mt-3 max-w-lg text-lg leading-relaxed text-muted text-pretty">
-                  If you&apos;d like your shop to be one of the first, you&apos;ll get my full attention.
+                  Want yours to be one of the first? I&apos;d love to hear what you&apos;re selling.
                 </p>
                 <Button asChild variant="accent" size="lg" className="mt-7">
                   <Link href="/#contact">
-                    Be one of the first <ArrowRight />
+                    Tell me about your shop <ArrowRight />
                   </Link>
                 </Button>
               </div>

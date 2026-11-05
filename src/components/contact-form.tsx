@@ -41,7 +41,7 @@ export function ContactForm() {
         </label>
       </div>
       <label className="grid gap-1.5 text-sm font-medium">
-        What are you building?
+        What are you working on?
         <textarea name="message" required rows={5} className={`${field} resize-y`} />
       </label>
       <div className="flex flex-wrap items-center gap-4">
@@ -51,7 +51,7 @@ export function ContactForm() {
           </Button>
         </Magnetic>
         <p role="status" className="text-sm text-[#fbeedd]/75">
-          {opened ? "Your email app should open with the message ready to send." : "Opens your email app with the message ready."}
+          {opened ? "Thanks! Your email app should open with the message ready to send." : "This opens your email app with everything filled in."}
         </p>
       </div>
     </form>

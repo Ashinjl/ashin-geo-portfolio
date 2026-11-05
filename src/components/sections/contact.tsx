@@ -6,6 +6,7 @@ import { ContactForm } from "@/components/contact-form";
 import { ContactScene } from "@/components/motion/contact-scene";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { LinkedinIcon } from "@/components/icons";
+import { Particles } from "@/components/particles";
 import { hasRealEmail, site } from "@/lib/site";
 
 /** The closing scene is always the dark room, in both themes: it is the "lamp on" moment. */
@@ -25,18 +26,20 @@ export function Contact() {
         <Doodle shape="squiggle" className="h-5 w-24" strokeWidth={2} />
       </span>
 
+      <Particles count={14} />
       <div className="wrap relative py-[var(--section-y)]">
         <Reveal>
           <p className="font-script text-3xl text-[#fbeedd]/70">Dream big.</p>
         </Reveal>
         <SplitHeading as="h2" className="mt-2 max-w-4xl font-display text-5xl font-extrabold leading-[1.04] text-balance sm:text-6xl lg:text-8xl">
-          Let&apos;s build something that sells.
+          Got an idea? Let&apos;s make it real.
         </SplitHeading>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <Reveal>
             <p className="max-w-md text-lg leading-relaxed text-[#fbeedd]/80 text-pretty">
-              Have an idea, a shop or a project? Tell me about it and I&apos;ll reply with questions and a rough plan.
+              Tell me a little about your shop or project and I&apos;ll write back with a few questions and a rough plan.
+              No pressure, no jargon.
             </p>
             <ul className="mt-8 grid gap-3">
               {hasRealEmail && (
@@ -59,7 +62,7 @@ export function Contact() {
               </li>
             </ul>
             <p className="font-script mt-10 hidden items-center gap-2 text-2xl text-[#fbeedd]/70 lg:flex">
-              write to me here
+              say hi here
               <Doodle shape="arrow" className="h-12 w-16 -rotate-[20deg] text-lamp" strokeWidth={2.5} />
             </p>
           </Reveal>
@@ -70,7 +73,7 @@ export function Contact() {
 
         <p className="mt-16 text-sm text-[#fbeedd]/60">
           <Link href="/writing" className="underline underline-offset-4 hover:text-[#fbeedd]">
-            Or read my writing first
+            Not ready yet? Read my writing first
           </Link>
         </p>
       </div>

@@ -8,23 +8,23 @@ import { services } from "@/lib/site";
 
 export function Services() {
   return (
-    <section id="services" data-nav="services" className="section-y border-t border-line">
+    <section id="services" data-nav="services" className="py-[var(--section-y)]">
       <div className="wrap grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start">
           <Reveal>
             <p className="eyebrow">Services</p>
           </Reveal>
           <SplitHeading as="h2" className="mt-4 font-display text-4xl font-extrabold leading-[1.08] text-balance sm:text-5xl lg:text-6xl">
-            What you can hire me to build.
+            What can I build for you?
           </SplitHeading>
           <Reveal delay={0.1}>
             <p className="mt-5 max-w-sm text-lg text-muted text-pretty">
-              Online shops, sites you can edit yourself, and the odd creative one-off. Tell me what you sell and I&apos;ll tell
-              you what fits.
+              Opening your first shop or giving an old site a fresh start, this is where I can help. Tell me what you sell
+              and we&apos;ll figure out what fits.
             </p>
             <Button asChild variant="primary" size="lg" className="mt-7">
               <Link href="/#contact">
-                Talk about your project <ArrowRight />
+                Let&apos;s talk about yours <ArrowRight />
               </Link>
             </Button>
           </Reveal>

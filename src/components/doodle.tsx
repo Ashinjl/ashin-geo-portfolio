@@ -65,7 +65,7 @@ export function Doodle({ shape, className, delay = 0, strokeWidth = 3 }: DoodleP
       className={cn("pointer-events-none overflow-visible", className)}
       style={{ "--draw-delay": `${delay}s` } as CSSProperties}
     >
-      <path d={d} pathLength={1} data-draw="" vectorEffect="non-scaling-stroke" />
+      <path d={d} pathLength={1} data-draw="" />
     </svg>
   );
 }

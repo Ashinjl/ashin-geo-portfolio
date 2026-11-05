@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { Doodle } from "@/components/doodle";
+import { Particles } from "@/components/particles";
 import { SplitHeading } from "@/components/motion/split-heading";
 import { offTheClock, toolkit } from "@/lib/site";
 
@@ -14,11 +15,11 @@ export function Toolkit() {
               <p className="eyebrow">Toolkit</p>
             </Reveal>
             <SplitHeading as="h2" className="mt-4 font-display text-4xl font-extrabold leading-[1.08] text-balance sm:text-5xl">
-              Turning ideas into reality.
+              What&apos;s in my toolbox.
             </SplitHeading>
             <Reveal delay={0.1}>
               <p className="mt-4 max-w-sm text-muted text-pretty">
-                The platforms and tools I use day to day, plus the hobbies that keep me learning.
+                The tools I reach for every day, plus a few things I do just for fun.
               </p>
             </Reveal>
           </div>
@@ -57,6 +58,7 @@ export function Toolkit() {
               <div className="float relative size-48 overflow-hidden rounded-md border-4 border-[#fffdf7] shadow-[0_22px_36px_-18px_rgba(52,44,24,0.55)] [--r:4deg]">
                 <Image src="/images/cube.jpg" alt="A scrambled Rubik's cube floating on a pastel background" fill sizes="192px" className="object-cover" />
               </div>
+              <Particles count={6} className="-inset-6" />
               <Doodle shape="star" className="absolute -right-4 -top-4 size-8 text-lamp" strokeWidth={2} />
             </div>
           </Reveal>
