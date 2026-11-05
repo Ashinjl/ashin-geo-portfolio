@@ -12,7 +12,19 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Third-party agent skills installed into the project; not our code.
+    ".claude/**",
+    ".agents/**",
+    "agent/**",
+    // The skill kit's own runtime files, served as static assets.
+    "public/kit/**",
   ]),
+  {
+    rules: {
+      // The page uses the skill kit's own <img> markup (frames, --ly-pos crops).
+      "@next/next/no-img-element": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
