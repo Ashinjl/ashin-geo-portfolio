@@ -35,7 +35,7 @@ export function ThemeToggle() {
       aria-label="Dark theme"
       title={next === "dark" ? "Dim the room, turn the lamp on" : "Back to daylight"}
       onClick={toggle}
-      className="relative flex h-9 w-[4.25rem] shrink-0 items-center justify-between rounded-full border border-line bg-surface px-2.5 text-muted backdrop-blur"
+      className="relative flex h-9 w-[4.25rem] shrink-0 items-center justify-between rounded-full border border-line bg-paper px-2.5 text-muted"
     >
       <Sun className="size-4" aria-hidden />
       <Moon className="size-4" aria-hidden />

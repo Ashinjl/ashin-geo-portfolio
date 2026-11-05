@@ -1,25 +1,34 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap, registerGsap, MQ } from "@/lib/gsap";
 
-/** A gentle scroll-linked drift for one picture, via GSAP ScrollTrigger. Rests under reduced motion. */
-export function Parallax({ children, className, amount = -6 }: { children: ReactNode; className?: string; amount?: number }) {
+type ParallaxProps = {
+  children: ReactNode;
+  className?: string;
+  /** Vertical drift in percent of the element's height across its pass through the viewport. */
+  amount?: number;
+  scrub?: number | boolean;
+};
+
+/** A gentle scroll-linked drift for one block. Tablet and up only, and at rest under reduced motion. */
+export function Parallax({ children, className, amount = -6, scrub = 0.8 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const ctx = gsap.context(() => {
-      gsap.to(ref.current, {
+    const element = ref.current;
+    if (!element) return;
+    registerGsap();
+    const mm = gsap.matchMedia();
+    mm.add(MQ.tablet, () => {
+      gsap.to(element, {
         yPercent: amount,
         ease: "none",
-        scrollTrigger: { trigger: ref.current, start: "top bottom", end: "bottom top", scrub: true },
+        scrollTrigger: { trigger: element, start: "top bottom", end: "bottom top", scrub, invalidateOnRefresh: true },
       });
-    });
-    return () => ctx.revert();
-  }, [amount]);
+    }, element);
+    return () => mm.revert();
+  }, [amount, scrub]);
 
   return (
     <div ref={ref} className={className}>

@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Magnetic } from "@/components/motion/magnetic";
 import { site } from "@/lib/site";
 
 const field =
-  "w-full rounded-2xl border border-line bg-white/70 px-4 py-3 text-base text-[#231a33] outline-none transition-colors placeholder:text-[#6c6280]/70 focus:border-accent focus:ring-2 focus:ring-accent/30 dark:bg-black/30 dark:text-[#fbeedd] dark:placeholder:text-[#b5a79c]/70";
+  "w-full rounded-md border border-white/25 bg-white/10 px-4 py-3 text-base text-[#fbeedd] outline-none transition-colors placeholder:text-[#fbeedd]/50 focus:border-lamp focus:ring-2 focus:ring-lamp/40";
 
 /**
  * Opens the visitor's email app with the message filled in, so it works on any host with no server.
@@ -44,10 +45,12 @@ export function ContactForm() {
         <textarea name="message" required rows={5} className={`${field} resize-y`} />
       </label>
       <div className="flex flex-wrap items-center gap-4">
-        <Button type="submit" size="lg" variant="accent">
-          {site.action} <Send />
-        </Button>
-        <p role="status" className="text-sm text-muted">
+        <Magnetic>
+          <Button type="submit" size="lg" className="bg-lamp text-[#1e2620] hover:brightness-110">
+            {site.action} <Send />
+          </Button>
+        </Magnetic>
+        <p role="status" className="text-sm text-[#fbeedd]/75">
           {opened ? "Your email app should open with the message ready to send." : "Opens your email app with the message ready."}
         </p>
       </div>

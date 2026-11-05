@@ -1,50 +1,51 @@
 "use client";
 
-import { useLayoutEffect, useRef, type ReactNode } from "react";
-import { animate, inView } from "motion";
+import { useEffect, useRef, type CSSProperties, type ElementType, type ReactNode } from "react";
 
-type RevealProps = { children: ReactNode; className?: string; delay?: number; y?: number };
+type RevealProps = {
+  children: ReactNode;
+  className?: string;
+  /** Seconds before the reveal starts once in view. */
+  delay?: number;
+  as?: ElementType;
+};
 
 /**
- * Fade-and-rise on first view. The server renders content fully visible; only once JavaScript runs
- * is it hidden (before paint) and animated in, so a failed script never leaves the page blank.
+ * Fade-and-rise on first view, driven by CSS.
+ * The hidden state only exists under `html.js` (set by an inline script) and is lifted by a failsafe
+ * timer and by reduced motion, so content can never stay invisible. See globals.css `[data-reveal]`.
  */
-export function Reveal({ children, className, delay = 0, y = 24 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
+export function Reveal({ children, className, delay = 0, as: Tag = "div" }: RevealProps) {
+  const ref = useRef<HTMLElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    el.style.opacity = "0";
-    el.style.transform = `translateY(${y}px)`;
-
-    let controls: ReturnType<typeof animate> | undefined;
-    const stop = inView(
-      el,
-      () => {
-        controls = animate(
-          el,
-          { opacity: 1, transform: "translateY(0px)" },
-          { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
-        );
-        controls.finished.then(() => el.style.removeProperty("transform"));
+    if (typeof IntersectionObserver === "undefined") {
+      el.dataset.revealed = "";
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          el.dataset.revealed = "";
+          io.disconnect();
+        }
       },
-      { margin: "0px 0px -80px 0px" },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.01 },
     );
-
-    return () => {
-      stop();
-      controls?.stop();
-      el.style.removeProperty("opacity");
-      el.style.removeProperty("transform");
-    };
-  }, [delay, y]);
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
-    <div ref={ref} className={className}>
+    <Tag
+      ref={ref}
+      data-reveal=""
+      className={className}
+      style={delay ? ({ "--reveal-delay": `${delay}s` } as CSSProperties) : undefined}
+    >
       {children}
-    </div>
+    </Tag>
   );
 }

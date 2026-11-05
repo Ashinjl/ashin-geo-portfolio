@@ -13,7 +13,7 @@ export default function WritingPage() {
   return (
     <section className="mx-auto flex min-h-dvh max-w-3xl flex-col justify-center px-5 pb-20 pt-32 sm:px-8">
       <Reveal>
-        <div className="grid size-14 place-items-center rounded-2xl bg-[#7ddfae] text-[#0f3d27]">
+        <div className="grid size-14 place-items-center rounded-2xl bg-accent-soft text-foreground">
           <PenLine className="size-7" aria-hidden />
         </div>
         <p className="font-script mt-8 text-3xl text-muted">Pen and paper, soon.</p>

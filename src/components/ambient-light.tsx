@@ -33,6 +33,7 @@ export function AmbientLight() {
     <>
       <div className="ambient-sun" aria-hidden />
       <div className="ambient-lamp" aria-hidden />
+      <div className="ambient-grain" aria-hidden />
     </>
   );
 }
