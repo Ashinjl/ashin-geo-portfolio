@@ -18,7 +18,7 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
         height={project.image.height}
         priority={priority}
         sizes="(min-width: 1024px) 45vw, 100vw"
-        className="size-full object-cover transition-transform duration-700 ease-out [@media(hover:hover)]:group-hover:scale-[1.04]"
+        className="size-full object-cover object-top transition-transform duration-700 ease-out [@media(hover:hover)]:group-hover:scale-[1.04]"
       />
     </div>
   );
